@@ -1,0 +1,33 @@
+.menu-data {
+  display: flex;
+  gap: 1rem;
+
+  .menu {
+    z-index: 11;
+
+    &.active {
+      width: 25%;
+      height: 100vh;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: all linear .3s;
+    }
+
+    .menu-icon {
+      color: #fff;
+      font-size: 3rem;
+      padding: 0.7rem 4rem 0.7rem 1rem;
+      width: 100%;
+    }
+  }
+
+  .data {
+    &.blur {
+      opacity: 0.4;
+      transition: all linear .2s;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.employee {
+  flex-direction: column;
+  position: fixed;
+  top: 18%;
+  left: 18%;
+  z-index: 10;
+  border: 1px solid #eaeaea82;
+  border-radius: 10px;
+  padding: 2.5rem;
+  width: 65vw;
+  margin: 2rem auto;
+  background-color: #ffffffba;
+
+  .row {
+    width: 100%;
+
+    &:nth-child(1) {
+      height: 3vh;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      ion-icon {
+        font-size: 30px;
+      }
+    }
+    &:nth-child(2) {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    &__item {
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+        padding: 1rem 0;
+      }
+      .content {
+        font-size: 19px;
+        text-align: justify;
+      }
+
+      .avatar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border: 1px solid #00000042;
+        border-radius: 10px;
+        gap: 15px;
+        width: 100%;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+        background-color: #ffffff91;
+        font-weight: bold;
+
+        *:not(.avatar__start-time) {
+          white-space: nowrap;
+        }
+
+        &__img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin: 1rem;
+          object-fit: cover;
+        }
+        &__name {
+          font-size: 25px;
+        }
+        &__date-of-birth {
+          font-size: 20px;
+        }
+        &__position {
+          font-size: 17px;
+          background: $background;
+          color: #fff;
+          padding: 10px;
+          border-radius: 50px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
