@@ -17,6 +17,10 @@ body {
   color: #4a4aff;
 }
 
+.txt-red {
+  color: #ff0000b0;
+}
+
 .none {
   display: none !important;
 }
@@ -44,9 +48,10 @@ body {
 
 .employee {
   flex-direction: column;
-  position: fixed;
-  top: 18%;
-  left: 18%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
   border: 1px solid #eaeaea82;
   border-radius: 10px;
@@ -181,6 +186,12 @@ body {
   color: #fff !important;
 }
 
+.modal-content {
+  min-width: 800px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -208,8 +219,10 @@ body {
   margin-bottom: 10px;
 }
 .modal-body__item .dropzone {
-  width: 22rem;
-  height: 22rem;
+  width: 50%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(50%);
   border-radius: 10px;
   object-fit: cover;
 }

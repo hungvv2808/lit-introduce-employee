@@ -1,3 +1,9 @@
+.modal-content {
+  min-width: 800px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -27,8 +33,10 @@
     }
 
     .dropzone {
-      width: 22rem;
-      height: 22rem;
+      width: 50%;
+      height: 100%;
+      left: 50%;
+      transform: translateX(50%);
       border-radius: 10px;
       object-fit: cover;
 

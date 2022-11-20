@@ -1,8 +1,9 @@
 .employee {
   flex-direction: column;
-  position: fixed;
-  top: 18%;
-  left: 18%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
   border: 1px solid #eaeaea82;
   border-radius: 10px;
