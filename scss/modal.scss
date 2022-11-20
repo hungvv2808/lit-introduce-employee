@@ -19,9 +19,37 @@
 
   &__item {
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
 
     label {
       margin-bottom: 10px;
+    }
+
+    .dropzone {
+      width: 22rem;
+      height: 22rem;
+      border-radius: 10px;
+      object-fit: cover;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .required {
+      border: 1px solid $red;
+
+      &::placeholder {
+        color: $red;
+      }
+    }
+
+    .validator {
+      font-style: italic;
+      color: $red;
+      font-size: 12px;
+      display: none;
     }
   }
 }

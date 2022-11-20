@@ -16,12 +16,13 @@
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
-<body>
+<body id="capture">
   <div class="menu-data">
     <div class="menu">
       <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
       <div class="menu-items none">
-        <button type="button" class="btn btn-custom btn-primary" data-toggle="modal" data-target="#eidtModal">Edit</button>
+        <a id="edit" class="menu-item" data-toggle="modal" data-target="#eidtModal">Edit</a>
+        <a id="screen-capture" class="menu-item">Take a screen short</a>
       </div>
     </div>
     <div class="data">
@@ -32,15 +33,14 @@
         </div>
         <div class="row">
           <div class="row__item">
-            <div class="title">
-            </div>
-            <div class="content">
-            </div>
+            <div class="title"></div>
+            <div class="content"></div>
           </div>
           <div class="row__item">
             <div class="avatar">
-              <img class="avatar__img" alt="avt">
+              <img class="avatar__img" alt="avt" />
               <span class="avatar__name txt-blue"></span>
+              <span class="avatar__nickname txt-blue"></span>
               <span class="avatar__date-of-birth"></span>
               <span class="avatar__position"></span>
             </div>
@@ -62,45 +62,61 @@
         </div>
         <div class="modal-body">
           <div class="modal-body__item">
-            <label for="title" class="form-label">Enter title:</label>
+            <label for="title" class="form-label txt-blue">Enter title:</label>
             <input placeholder="Enter title ..." class="form-control" type="text" id="title">
+            <span class="validator">This field is require !!!</span>
           </div>
           <div class="modal-body__item">
-            <label for="editordata" class="form-label">Enter content:</label>
-            <textarea id="summernote" name="editordata"></textarea>
+            <label for="content" class="form-label txt-blue">Enter content:</label>
+            <textarea id="content" name="editordata"></textarea>
           </div>
           <div class="modal-body__item">
-            <label for="avatar" class="form-label">Select avartar:</label>
-            <input placeholder="Select avartar ..." class="form-control" type="file" id="avatar">
+            <label for="avatar" class="form-label txt-blue">Select avartar:</label>
+            <input placeholder="Select avartar ..." class="form-control none" type="file" id="avatar" accept="image/*" onchange="processFileUploaderSelection(this)">
+            <img class="dropzone dropzone__avatar" src="./images/avt.jpg"/>
           </div>
           <div class="modal-body__item">
-            <label for="name" class="form-label">Enter name:</label>
+            <label for="name" class="form-label txt-blue">Enter name:</label>
             <input placeholder="Enter name ..." class="form-control" type="text" id="name">
+            <span class="validator">This field is require !!!</span>
           </div>
           <div class="modal-body__item">
-            <label for="date-of-birth" class="form-label">Enter date of birth:</label>
+            <label for="nickname" class="form-label txt-blue">Enter nickname:</label>
+            <input placeholder="Enter nickname ..." class="form-control" type="text" id="nickname">
+            <span class="validator">This field is require !!!</span>
+          </div>
+          <div class="modal-body__item">
+            <label for="date-of-birth" class="form-label txt-blue">Enter date of birth:</label>
             <input placeholder="Enter date of birth ..." class="form-control" type="text" id="date-of-birth">
+            <span class="validator">This field is require !!!</span>
           </div>
           <div class="modal-body__item">
-            <label for="position" class="form-label">Enter position:</label>
+            <label for="position" class="form-label txt-blue">Enter position:</label>
             <input placeholder="Enter position ..." class="form-control" type="text" id="position">
+            <span class="validator">This field is require !!!</span>
           </div>
           <div class="modal-body__item">
-            <label for="background-image" class="form-label">Select background:</label>
-            <input placeholder="Select background ..." class="form-control" type="file" id="background-image">
+            <label for="background-image" class="form-label txt-blue">Select background:</label>
+            <input placeholder="Select background ..." class="form-control none" type="file" id="background-image" accept="image/*" onchange="processFileUploaderSelection(this)">
+            <img class="dropzone dropzone__background-image" src="./images/welcome.jpg" />
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-custom btn-primary submit">Submit</button>
+          <button type="button" class="btn btn-pre btn-secondary btn-close" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-pre btn-custom btn-primary submit">Submit</button>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="pyro"><div class="before"></div><div class="after"></div></div>
   
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="./js/const.js"></script>
+  <script src="./js/file-processor.js"></script>
+  <script src="./js/screen-capture.js"></script>
   <script src="./js/script.js"></script>
 </body>
 </html>

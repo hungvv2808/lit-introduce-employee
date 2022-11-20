@@ -1,6 +1,4 @@
-.btn-custom {
-  background-color: $blue !important;
-  color: $white !important;
+.btn-pre {
   width: 100px;
   height: 40px;
   border-radius: 5px !important;
@@ -8,5 +6,10 @@
   &:focus {
     border-color: transparent !important;
     outline: none !important;
+  }
+
+  &.btn-custom {
+    background-color: $blue !important;
+    color: $white !important;
   }
 }

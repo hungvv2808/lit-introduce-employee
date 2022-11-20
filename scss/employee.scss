@@ -8,7 +8,7 @@
   border-radius: 10px;
   padding: 2.5rem;
   width: 65vw;
-  margin: 2rem auto;
+  margin: auto;
   background-color: #ffffffba;
 
   .row {
@@ -48,7 +48,7 @@
         padding: 20px;
         border: 1px solid #00000042;
         border-radius: 10px;
-        gap: 15px;
+        gap: 8px;
         width: 100%;
         box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
         background-color: #ffffff91;
@@ -65,7 +65,7 @@
           margin: 1rem;
           object-fit: cover;
         }
-        &__name {
+        &__name, &__nickname {
           font-size: 25px;
         }
         &__date-of-birth {

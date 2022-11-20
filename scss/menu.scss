@@ -14,6 +14,10 @@
       align-items: center;
       gap: 1rem;
       transition: all linear .3s;
+
+      .menu-icon {
+        padding-left: 4rem;
+      }
     }
 
     .menu-icon {
@@ -21,6 +25,26 @@
       font-size: 3rem;
       padding: 0.7rem 4rem 0.7rem 1rem;
       width: 100%;
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+
+    .menu-items {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      text-align: center;
+      width: 100%;
+      gap: 1rem;
+      color: $blue;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 

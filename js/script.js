@@ -57,9 +57,25 @@ const clickOutsideToCloseMenu = () => {
   });
 }
 
+const edit = () => {
+  updateValueModal('get');
+}
+const screenCapture = () => {
+  hidden(getDataElement());
+  capture();
+}
+
 const submit = () => {
-  let textareaVal = $('#summernote').summernote('code');
-  console.log(textareaVal);
+  defaultData.content = $('#content').summernote('code');
+  if (updateValueModal()) {
+    return;
+  }
+
+  updateValueElement();
+  document.querySelector('.btn-close').click();
+  hidden(getDataElement());
+
+  displayPyro();
 };
 
 const updateValueElement = () => {
@@ -69,10 +85,55 @@ const updateValueElement = () => {
   setBackgroundImage(defaultData.backgroundImage);
 }
 
+const updateValueModal = (type = 'set') => {
+  let check = false;
+  modalIdNames.forEach((elementData) => {
+    if ('text' !== elementData.type) {
+      return;
+    }
+
+    const element = document.querySelector(`#${elementData.id}`);
+    const elementValidator = element.parentElement.querySelector('.validator');
+
+    if ('set' === type) {
+      if ('' === element.value) {
+        check = true;
+        elementValidator.style.display = 'block';
+        element.classList.add('required');
+      } else {
+        elementValidator.style.display = 'none';
+        element.classList.remove('required');
+      }
+      
+      if (!check) {
+        defaultData[elementData.key] = element.value;
+      }
+    } else {
+      element.value = defaultData[elementData.key];
+      elementValidator.style.display = 'none';
+      element.classList.remove('required');
+    }
+  });
+
+  return check;
+}
+
+const displayPyro = () => {
+  const pyro = document.querySelector('.pyro');
+  pyro.style.display = 'block';
+  setTimeout(() => {
+    pyro.style.display = 'none';
+  }, timeoutPyro);
+}
+
 (() => {
   updateValueElement();
   clickOutsideToCloseMenu();
+  uploadFileProcessor();
+  displayPyro();
 })();
 
 document.querySelector('.menu-icon').addEventListener('click', displayMenu);
+document.querySelector('#edit').addEventListener('click', edit);
+document.querySelector('#screen-capture').addEventListener('click', screenCapture);
 document.querySelector('.submit').addEventListener('click', submit);
