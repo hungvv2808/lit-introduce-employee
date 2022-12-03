@@ -10,7 +10,7 @@ const defaultInfo = {
   position: "Human Resources",
   backgroundImage: "./images/welcome.jpg",
 };
-const defaultData = {...defaultInfo};
+let defaultData = {...defaultInfo};
 
 $('#content').summernote({
   placeholder: 'Enter content ...',
@@ -51,4 +51,19 @@ const modalIdNames = [
 
 const snakeToCamel = (str) => {
   return str.toLowerCase().replace(/([-_][a-z])/g, group => group.toUpperCase().replace('-', '').replace('_', ''));
+};
+
+const setLocalStorage = (data) => {
+  localStorage.setItem('data', JSON.stringify(data));
+}
+const getLocalStorage = () => {
+  return JSON.parse(localStorage.getItem('data'));
+}
+
+const updateLocalStorage = () => {
+  if (null === getLocalStorage()) {
+    setLocalStorage(defaultData);
+  } else {
+    defaultData = getLocalStorage();
+  }
 };

@@ -72,6 +72,7 @@ const submit = () => {
   }
 
   updateValueElement();
+  setLocalStorage(defaultData);
   document.querySelector('.btn-close').click();
   hidden(getDataElement());
 
@@ -127,6 +128,7 @@ const displayPyro = () => {
 }
 
 (() => {
+  updateLocalStorage();
   updateValueElement();
   clickOutsideToCloseMenu();
   uploadFileProcessor();
